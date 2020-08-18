@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "601c0aad-7ca5-4c5c-bfb7-313af45d65c3",
+		"name": "SOAP APIs COLLECTION",
+		"description": "This collection consists of **SOAP APIs** that does arithmatic operations using HTTP method *POST*",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POSITIVE TC",
+			"item": [
+				{
+					"name": "ADD",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f48bdbf4-389d-4db5-a2e0-97aadbb0901e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": "__cfduid=d2605086987f029eddd4857be1be892b21597146513",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 12345",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <Add xmlns=\"http://tempuri.org/\">\r\n            <intA>{{MyA}}</intA>\r\n            <intB>{{MyB}}</intB>\r\n        </Add>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.dneonline.com/calculator.asmx",
+							"protocol": "http",
+							"host": [
+								"www",
+								"dneonline",
+								"com"
+							],
+							"path": [
+								"calculator.asmx"
+							]
+						},
+						"description": "This is Addition API"
+					},
+					"response": []
+				},
+				{
+					"name": "SUBTRACT",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <Subtract xmlns=\"http://tempuri.org/\">\r\n            <intA>{{MyA}}</intA>\r\n            <intB>{{MyB}}</intB>\r\n        </Subtract>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.dneonline.com/calculator.asmx",
+							"protocol": "http",
+							"host": [
+								"www",
+								"dneonline",
+								"com"
+							],
+							"path": [
+								"calculator.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MULTIPLY",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <Multiply xmlns=\"http://tempuri.org/\">\r\n            <intA>{{MyA}}</intA>\r\n            <intB>{{MyB}}</intB>\r\n        </Multiply>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.dneonline.com/calculator.asmx",
+							"protocol": "http",
+							"host": [
+								"www",
+								"dneonline",
+								"com"
+							],
+							"path": [
+								"calculator.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DIVIDE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <Divide xmlns=\"http://tempuri.org/\">\r\n            <intA>{{MyA}}</intA>\r\n            <intB>{{MyB}}</intB>\r\n        </Divide>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.dneonline.com/calculator.asmx",
+							"protocol": "http",
+							"host": [
+								"www",
+								"dneonline",
+								"com"
+							],
+							"path": [
+								"calculator.asmx"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "## This folder contains all positive *test cases*",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6f34504b-3e8e-42d6-a2a6-541b82088158",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0334170a-f516-4b6e-aee6-a1dd6b073b55",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "NEGATIVE TC",
+			"item": [
+				{
+					"name": "ADD-NEGATIVE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "31f16eee-420f-4093-a9dc-18568770d63d",
+								"exec": [
+									"postman.setNextRequest(\"\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <Add xmlns=\"http://tempuri.org/\">\r\n            <intA>5</intA>\r\n            <intB>6</intB>\r\n        </Add>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.dneonline.com/calculator.asmx",
+							"protocol": "http",
+							"host": [
+								"www",
+								"dneonline",
+								"com"
+							],
+							"path": [
+								"calculator.asmx"
+							]
+						},
+						"description": "This is a negative test case for Addition API"
+					},
+					"response": []
+				},
+				{
+					"name": "SUBTRACT-NEGATIVE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <Subtract xmlns=\"http://tempuri.org/\">\r\n            <intA>987978979797978</intA>\r\n            <intB>97979798777979798</intB>\r\n        </Subtract>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.dneonline.com/calculator.asmx",
+							"protocol": "http",
+							"host": [
+								"www",
+								"dneonline",
+								"com"
+							],
+							"path": [
+								"calculator.asmx"
+							]
+						},
+						"description": "This is a negative test case for Subtraction API"
+					},
+					"response": []
+				},
+				{
+					"name": "MULTIPLY-NEGATIVE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <Multiply xmlns=\"http://tempuri.org/\">\r\n            <intA>10</intA>\r\n            <intB>five</intB>\r\n        </Multiply>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.dneonline.com/calculator.asmx",
+							"protocol": "http",
+							"host": [
+								"www",
+								"dneonline",
+								"com"
+							],
+							"path": [
+								"calculator.asmx"
+							]
+						},
+						"description": "This is a negative test case for Multiply API\r\n\r\n"
+					},
+					"response": []
+				}
+			],
+			"description": "# This folder contains all negative test cases",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

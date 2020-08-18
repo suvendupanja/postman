@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "739f4ae5-751d-4d91-af28-c7cf7fc3a7fa",
+		"name": "REST APIs - ALL ENV",
+		"description": "This collection consists of **RESTful** APIs that uses HTTP methods such as *GET, POST, PUT, PATCH, DELETE*.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POSITIVE TC",
+			"item": [
+				{
+					"name": "LIST USERS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "42f7350e-c8c6-4cad-92ec-a02925a91689",
+								"exec": [
+									"postman.setNextRequest(\"SINGLE USER\");\r",
+									"pm.globals.unset(\"variable_key\");\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test.skip(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{myProtocol}}://{{myBaseURL}}/api/users?page=2",
+							"protocol": "{{myProtocol}}",
+							"host": [
+								"{{myBaseURL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						},
+						"description": "This **REST API** returns all the *list of users*"
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLE USER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ea422356-8137-4563-99df-e4c9e448c3a4",
+								"exec": [
+									"postman.setNextRequest(\"\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{myProtocol}}://{{myBaseURL}}/api/users/2",
+							"protocol": "{{myProtocol}}",
+							"host": [
+								"{{myBaseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						},
+						"description": "This **REST API** returns the data of a *single user*"
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{myName}}\",\r\n    \"job\": \"{{myJob}}}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myProtocol}}://{{myBaseURL}}/api/users",
+							"protocol": "{{myProtocol}}",
+							"host": [
+								"{{myBaseURL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "This **REST API** creates a new user"
+					},
+					"response": []
+				}
+			],
+			"description": "This **folder** consists of all Positive API test cases",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8ecc7383-0421-4490-88bb-3ed7cf0f61ec",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "eed4cce5-324a-4c32-8942-c0fb19bed5a9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
